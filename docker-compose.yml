@@ -1,0 +1,18 @@
+version: '3.9'
+services:
+  rest-with-spring-boot-erudio:
+    image: elderpereira/spring-boot-with-gitactions-and-dockerhub
+    restart: always
+    build: .
+    working_dir: /spring-boot-with-gitactions-and-dockerhub
+    environment:
+      TZ: America/Sao_Paulo
+    ports:
+      - 8080:8080
+    command: mvn spring-boot:run
+    networks:
+      - my-network
+
+networks:
+  my-network:
+    driver: bridge
